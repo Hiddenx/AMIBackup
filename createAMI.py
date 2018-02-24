@@ -28,7 +28,7 @@ def lambda_handler(event, context):
     #How long should the AMI retain on AWS EC2 Console
     for instance in instances:
         try:
-            retention_days = [
+            retain = [
                 int(t.get('Value')) for t in instance['Tags']
                 if t['Key'] == 'Retention'][0]
         except IndexError:
